@@ -1,6 +1,9 @@
 package Chess;
 
+import Chess.pieces.King;
+import Chess.pieces.Rook;
 import boardgame.Board;
+import boardgame.Position;
 
 public class ChessMatch {
 
@@ -8,6 +11,7 @@ public class ChessMatch {
 	
 	public ChessMatch () {
 		board = new Board(8,8);
+		initialSetup();
 	}
 	
 	public ChessPiece[][] getpieces(){// este metodo vai retornar uma matriz de peça de xadrez correspon de a partida 
@@ -20,7 +24,8 @@ public class ChessMatch {
 		return mat;
 	}
 
-	public static ChessPiece[][] getpiece() {//
-		return null;
+	private void initialSetup() {
+		board.placePiece(new Rook(board, Color.White), new Position(2,1));
+		board.placePiece(new King(board, Color.Black), new Position(0,4));
 	}
 }

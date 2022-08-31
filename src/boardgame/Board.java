@@ -32,7 +32,11 @@ public class Board {
 		return pieces [row][column];
 	}
 	
-	public Piece piece (Position position) {
+	public Piece piece (Position position) {// sobre carga do metodo acima 
 		return pieces [position.getRow()] [position.getColumn()];
+	}
+	
+	public void placePiece(Piece piece , Position position) { // é a matriz de peça que está declarada lá em cima
+		pieces[position.getRow()][position.getColumn()]= piece;
 	}
 }
