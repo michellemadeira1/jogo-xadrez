@@ -140,6 +140,21 @@ public class ChessMatch {
 			   rook.increaseMoveCount();
 		   }
 		   
+		   // #Special en passant
+		   if ( p instanceof Pawn) {
+			   if (source.getColumn() != target.getColumn() && capturedPiece == null) {
+				   ChessPiece pawn = (ChessPiece)board.removePiece(target);
+				   Position pawnPosition;
+				   if (p.getColor() == Color.White) {
+					   pawnPosition = new Position ( target.getRow() + 1, target.getColumn());
+				   }
+				   else {
+					   pawnPosition = new Position ( target.getRow() + 1, target.getColumn());
+				   }
+				   board.placePiece(pawn, pawnPosition);  
+			   }
+		   }
+		   
 		   return capturedPiece;
 	   }
 	   
